@@ -1,15 +1,17 @@
 # Automated File Organizer
 
-A Python-based utility that automatically organizes files into category-specific folders based on their file extensions.
+A Python-based utility that organizes files into category-specific folders based on their file extensions. It allows users to select a folder, preview the organization plan, and confirm before moving files.
 
 ## Features
 
 - Automatically categorizes files by extension.
 - Supports Documents, Images, Videos, Archives, and Others.
+- Allows users to specify the folder they want to organize.
+- Previews file categories before moving files.
+- Asks for user confirmation before organizing files.
 - Creates destination folders automatically.
-- Moves files into their respective category folders.
 - Prevents overwriting files with duplicate names.
-- Provides a preview before organizing files.
+- Handles invalid folder paths and file-moving errors.
 - Includes automated unit tests using Python's `unittest` framework.
 
 ## Technologies Used
@@ -17,6 +19,8 @@ A Python-based utility that automatically organizes files into category-specific
 - Python
 - pathlib
 - unittest
+- tempfile
+- unittest.mock
 
 ## Project Structure
 
@@ -25,6 +29,7 @@ Automated-File-Organizer/
 ├── organizer.py
 ├── test_organizer.py
 ├── README.md
+├── .gitignore
 └── test_files/
     ├── Documents/
     ├── Images/
@@ -51,16 +56,16 @@ Automated-File-Organizer/
 
 1. Clone or download this repository.
 2. Open the project folder in a terminal.
-3. Place the files you want to organize inside `test_files/`.
-4. Run the program:
+3. Run the program:
 
 ```bash
 python organizer.py
 ```
 
-The program displays a preview and then moves files into their respective category folders.
+4. Enter the full path of the folder you want to organize when prompted.
+5. Review the preview and enter `y` to move files or `n` to cancel.
 
-**Important:** Test the program on sample files first. It moves files from the source folder, so do not use important personal files without a backup.
+**Important:** The program moves files from the selected folder. Test it with sample files first and back up important files before organizing them.
 
 ## Run Tests
 
@@ -70,14 +75,14 @@ Run the following command to execute the automated unit tests:
 python -m unittest test_organizer -v
 ```
 
-The tests verify file categorization for text files, PDF files, images, archives, and unknown extensions.
+The test suite checks file categorization, invalid and empty folders, file preview, and cancellation behavior.
 
 ## Future Improvements
 
-- Add a command-line interface for selecting folders.
-- Add logging and improved error handling.
-- Support duplicate filenames with automatic renaming.
-- Add an option to preview changes without moving files.
+- Add automatic renaming for duplicate filenames.
+- Add logging and a summary report.
+- Add a graphical user interface.
+- Expand test coverage for file-moving errors and confirmation scenarios.
 
 ## Author
 
